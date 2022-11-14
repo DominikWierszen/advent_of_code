@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
 
   vector<string> bnums;
   string bnum;
-  int power_consumption, gamma_rate, epilson_rate, zeroes;
+  // var gamma_rate = "", epilson_rate = "" var zeroes = 0;
   while (ifile >> bnum) {
     bnums.push_back(bnum);
   }
@@ -18,14 +18,15 @@ int main(int argc, char *argv[]) {
   for (string a : bnums) {
     for (char b : a) {
       if (b == '0') {
-        zeroes++;
+        // zeroes++;
       }
+      // gamma_rate += if (zeroes < a.size() / 2) "0" else "1";
     }
   }
 
   ifile.close();
 
-  power_consumption = gamma_rate * epilson_rate;
-  cout << power_consumption;
+  // power_consumption = gamma_rate * epilson_rate;
+  // cout << power_consumption;
   return 0;
 }
