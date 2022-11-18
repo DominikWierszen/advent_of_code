@@ -14,10 +14,10 @@ int main(int argc, char *argv[]) {
     bnums.push_back(bnum);
   }
   ifile.close();
-  string oxygen_generator_rate = "", co2_scrubber__rate = "";
+  string most_generator_rate = "", co2_scrubber__rate = "";
 
-  vector<string> oxygen;
-  vector<string> co2;
+  vector<string> most;
+  vector<string> least;
 
   // loops through string
   while (bnums.size() > 1) {
@@ -33,18 +33,13 @@ int main(int argc, char *argv[]) {
         ones++;
       }
       if (zeroes > bnums.size() / 2) {
-        oxygen_generator_rate += "0";
-        co2_scrubber__rate += "1";
+
       } else if (zeroes < bnums.size() / 2) {
-        oxygen_generator_rate += "1";
-        co2_scrubber__rate += "0";
       } else {
-        oxygen_generator_rate += "1";
-        co2_scrubber__rate += "0";
       }
     }
 
-    cout << (int)std::stoi(oxygen_generator_rate, nullptr, 2) *
+    cout << (int)std::stoi(most_generator_rate, nullptr, 2) *
                 (int)std::stoi(co2_scrubber__rate, nullptr, 2);
     return 0;
   }
