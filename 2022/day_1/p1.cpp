@@ -1,23 +1,27 @@
 #include <fstream>
 #include <iostream>
+#include <sstream>
 #include <vector>
 using namespace std;
 
 int main(int argc, char *argv[]) {
-  int answer = 0;
-  int calories;
-  vector<int> data;
+  int max = 0;
+  int current = 0;
+  string calories;
   ifstream myFile;
   myFile.open("data.txt");
-  while (cin >> calories) {
-    if ()
-      data.push_back(calories);
+  while (getline(myFile, calories)) {
+    if (calories.empty()) {
+      if (max < current) {
+        max = current;
+      }
+      current = 0;
+    } else {
+      current += stoi(calories);
+    }
   }
 
-  for (auto x : data) {
-    cout << x;
-  }
   myFile.close();
-  cout << answer;
+  cout << max;
   return 0;
 }
