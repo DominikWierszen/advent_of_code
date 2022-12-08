@@ -11,7 +11,6 @@ int main(int argc, char *argv[]) {
   string word;
   string half1, half2;
   vector<vector<string>> halves;
-  unordered_set<char, int> amount;
 
   while (myFile >> word) {
     half1 = word.substr(0, word.length() / 2);
@@ -21,9 +20,9 @@ int main(int argc, char *argv[]) {
 
   for (auto x : halves) {
     for (auto i : x) {
+      for (auto f : i) {
+      }
     }
-
-    amount = {};
   }
 
   myFile.close();
