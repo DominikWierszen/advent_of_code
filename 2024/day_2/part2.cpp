@@ -18,8 +18,9 @@ bool isIncOrDec(vector<int> list) {
 }
 
 bool isSafe(vector<int> list) {
-  if (!isIncOrDec(list))
+  if (!isIncOrDec(list)) {
     return false;
+  }
   for (int i = 0; i < list.size() - 1; i++) {
     if (list[i] > list[i + 1]) {
       if (list[i] - list[i + 1] <= 3 && list[i] - list[i + 1] >= 0)
@@ -48,8 +49,19 @@ int main(int argc, char *argv[]) {
     while (iss >> num) {
       list.push_back(num);
     }
-    if (isSafe(list))
+    if (isSafe(list)) {
       ans++;
+    } else {
+      for (int i = 0; i < list.size(); i++) {
+        vector<int> tempList = list;
+        tempList.erase(tempList.begin() + i);
+
+        if (isSafe(tempList)) {
+          ans++;
+          break;
+        }
+      }
+    }
     list.clear();
   }
 
