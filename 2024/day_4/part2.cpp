@@ -1,8 +1,14 @@
-#include <fstream>
-#include <iostream>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
+
+bool check_xmas(vector<vector<char>> list, int i, int j) {
+  if (((list[i + 1][j + 1] == 'M' && list[i - 1][j - 1] == 'S') ||
+       (list[i + 1][j + 1] == 'S' && list[i - 1][j - 1] == 'M')) &&
+      ((list[i - 1][j + 1] == 'M' && list[i + 1][j - 1] == 'S') ||
+       (list[i - 1][j + 1] == 'S' && list[i + 1][j - 1] == 'M')))
+    return true;
+  return false;
+}
 
 int main(int argc, char *argv[]) {
   string data;
@@ -19,19 +25,15 @@ int main(int argc, char *argv[]) {
   }
 
   int ans = 0;
-  for (size_t i = 0; i < list.size(); ++i) {
-    for (size_t j = 0; j < list[i].size(); ++j) {
+  for (size_t i = 1; i < list.size() - 1; ++i) {
+    for (size_t j = 1; j < list[i].size() - 1; ++j) {
       if (list[i][j] == 'A') {
+        if (check_xmas(list, i, j))
+          ans++;
       }
     }
   }
 
-  // for (auto l : list) {
-  //   for (auto c : l) {
-  //     cout << c;
-  //   }
-  //   cout << endl;
-  // }
   cout << ans;
   myFile.close();
   return 0;
