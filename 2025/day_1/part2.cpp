@@ -12,16 +12,17 @@ int main(int argc, char *argv[]) {
   while (getline(myFile, data)) {
     istringstream iss(data);
     iss >> direction >> distance;
-    // left.push_back(num1);
-    if (direction == 'R') {
-      dial = (dial + distance) % 100;
-    } else {
-      dial = (dial - distance) % 100;
+    for (int i = 0; i < distance; i++) {
+      if (direction == 'R') {
+        dial++;
+      } else {
+        dial--;
+      }
+      if ((dial % 100) == 0) {
+        ans++;
+      }
     }
-    if (dial == 0)
-      ans++;
   }
-  // sort(left.begin(), left.end());
 
   cout << ans << endl;
 

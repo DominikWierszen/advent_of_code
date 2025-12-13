@@ -25,8 +25,8 @@ int main(int argc, char *argv[]) {
   }
 
   int ans = 0;
-  for (size_t i = 1; i < list.size() - 1; ++i) {
-    for (size_t j = 1; j < list[i].size() - 1; ++j) {
+  for (int i = 1; i < list.size() - 1; ++i) {
+    for (int j = 1; j < list[i].size() - 1; ++j) {
       if (list[i][j] == 'A') {
         if (check_xmas(list, i, j))
           ans++;
